@@ -15,10 +15,12 @@ export class ViewComponent implements OnInit {
   public image: Array<any> = [];
   public newList: Array<any> = [];
   request: QueryParams = {
-    page: 1,
+    page: 0,
     pageSize: 10,
     orderBy: 'name',
   };
+  totalCount: any;
+  abilities: any;
   constructor(public service: PokeServiceService) { }
 
   ngOnInit(): void {
@@ -26,11 +28,14 @@ export class ViewComponent implements OnInit {
   }
 
   getList(request: QueryParams) {
+    this.newList=[];
     this.service.getList(request)
       .subscribe(
         result => {
+          console.log("firstlist", result);
           this.list = result.results;
           console.log(this.list);
+          this.totalCount=result.count;
           for (let i = 0; i < this.list.length; i++) {
 
             this.url = this.list[i].url;
@@ -47,10 +52,15 @@ export class ViewComponent implements OnInit {
       result => {
         console.log("res", result);
         this.details = result;
+         this.abilities=this.details['abilities'];
+         console.log('this.abilities',this.abilities);
         const data = {
           id: this.details['id'],
           name: this.details['name'],
-          img: this.details.sprites.other['official-artwork'].front_default
+          img: this.details.sprites.other['official-artwork'].front_default,
+          weight:this.details['weight'],
+          height:this.details['height'],
+          abilities:this.details['abilities']
         }
         this.newList.push(data);
         this.newList.sort((a, b) => (
@@ -61,5 +71,19 @@ export class ViewComponent implements OnInit {
 
       }
     );
+  }
+
+  paginate(event:any){
+    console.log("event", event);
+    let first = event.first;
+    let row = event.rows;
+    let page = event.page;
+    let noofPages =  event.pageCount;
+    this.request={
+      page: first,
+      pageSize: row,
+      orderBy: 'name',
+    }
+    this.getList(this.request);
   }
 }

@@ -1,7 +1,9 @@
 <div class="container-fluid">
-    
+   
     <div class="row col-md-12">
         <h1 style="text-align: center;">Pokemon</h1>
+        <!-- <input type="text" pInputText> -->
+        <p-paginator [pageLinkSize]="3" [rows]="10" [totalRecords]="totalCount" [rowsPerPageOptions]="[10,20,50]" (onPageChange)="paginate($event)"></p-paginator>
         <div class="col-md-4" style="padding: 18px;" *ngFor="let item1 of newList">
 
                 <p-card [style]="{width: '360px'}" styleClass="p-card-shadow">
@@ -10,6 +12,13 @@
                         <img alt="Card" src="{{item1.img}}" style="width: 150px;">
                     </ng-template>
                     <p>{{item1.name}}</p>
+                    <p>Height : {{item1.height}}</p>
+                    <p>Weight: {{item1.weight}}</p>
+                   
+                       <div>Abilities:<div *ngFor="let item of item1.abilities">{{item.ability.name}}</div>
+                    </div>
+
+                 
                     <ng-template pTemplate="footer">
 
                     </ng-template>
@@ -17,4 +26,5 @@
 
         </div>
     </div>
+    <!-- <p-paginator [pageLinkSize]="3" [rows]="10" [totalRecords]="totalCount" [rowsPerPageOptions]="[10,20,50]" (onPageChange)="paginate($event)"></p-paginator> -->
 </div>

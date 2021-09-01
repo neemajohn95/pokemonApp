@@ -23,7 +23,7 @@ export class PokeServiceService {
    
   getList(req:QueryParams): Observable<any> {
     const params = new HttpParams({
-      fromString: `limit=${req.pageSize}&offset=0`,
+      fromString: `limit=${req.pageSize}&offset=${req.page}`,
     });
 
     return this._http.get(this.baseUrl,{params});

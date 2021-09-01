@@ -7,6 +7,11 @@ import { AppComponent } from './app.component';
 import { ViewComponent } from './view/view.component';
 import { ButtonModule } from 'primeng/button';
 import { CardModule, } from 'primeng/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {PaginatorModule} from 'primeng/paginator';
+import {InputTextModule} from 'primeng/inputtext';
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +24,11 @@ import { CardModule, } from 'primeng/card';
     HttpClientModule,
     BrowserAnimationsModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
+    MatPaginatorModule,
+    PaginatorModule,
+    InputTextModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
