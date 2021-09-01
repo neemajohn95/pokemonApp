@@ -13,6 +13,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 import {FieldsetModule} from 'primeng/fieldset';
 import {TableModule} from 'primeng/table';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {TableModule} from 'primeng/table';
     InputTextModule,
     DropdownModule,
     FieldsetModule,
-    TableModule
+    TableModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
