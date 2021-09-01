@@ -7,16 +7,18 @@ import { AppComponent } from './app.component';
 import { ViewComponent } from './view/view.component';
 import { ButtonModule } from 'primeng/button';
 import { CardModule, } from 'primeng/card';
-import {MatPaginatorModule} from '@angular/material/paginator';
 import {PaginatorModule} from 'primeng/paginator';
 import {InputTextModule} from 'primeng/inputtext';
-
+import {DropdownModule} from 'primeng/dropdown';
+import { ViewDetailsComponent } from './view-details/view-details.component';
+import {FieldsetModule} from 'primeng/fieldset';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ViewComponent
+    ViewComponent,
+    ViewDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,10 +27,10 @@ import {InputTextModule} from 'primeng/inputtext';
     BrowserAnimationsModule,
     CardModule,
     ButtonModule,
-    MatPaginatorModule,
     PaginatorModule,
-    InputTextModule
-    
+    InputTextModule,
+    DropdownModule,
+    FieldsetModule
   ],
   providers: [],
   bootstrap: [AppComponent],

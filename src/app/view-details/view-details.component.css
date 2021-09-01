@@ -1,0 +1,13 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 21px;
+  }
+  .btnback{
+      color: black;
+      background-color: coral;
+      float: right;
+      border: 0;
+  }

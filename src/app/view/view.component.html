@@ -2,18 +2,22 @@
    
     <div class="row col-md-12">
         <h1 style="text-align: center;">Pokemon</h1>
-        <!-- <input type="text" pInputText> -->
+ 
+        <div>
+            Sort By: <p-dropdown [options]="options" [(ngModel)]="selection" optionLabel="name" (onChange)="onSort()"></p-dropdown>
+
+        </div>
         <p-paginator [pageLinkSize]="3" [rows]="10" [totalRecords]="totalCount" [rowsPerPageOptions]="[10,20,50]" (onPageChange)="paginate($event)"></p-paginator>
         <div class="col-md-4" style="padding: 18px;" *ngFor="let item1 of newList">
 
-                <p-card [style]="{width: '360px'}" styleClass="p-card-shadow">
+                <p-card [style]="{width: '360px',height:'373px'}" styleClass="p-card-shadow">
                     
                     <ng-template pTemplate="header" >
-                        <img alt="Card" src="{{item1.img}}" style="width: 150px;">
+                        <img alt="Card" src="{{item1.img}}" style="width: 150px;" class="center" (click)="oncardClick(item1.id)"> 
                     </ng-template>
-                    <p>{{item1.name}}</p>
-                    <p>Height : {{item1.height}}</p>
-                    <p>Weight: {{item1.weight}}</p>
+                    <div style="text-align: center;">{{item1.name | uppercase}}</div>
+                    <div>Height : {{item1.height}}</div>
+                    <div>Weight: {{item1.weight}}</div>
                    
                        <div>Abilities:<div *ngFor="let item of item1.abilities">{{item.ability.name}}</div>
                     </div>

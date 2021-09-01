@@ -18,7 +18,7 @@ export interface QueryParams {
 export class PokeServiceService {
 
   private baseUrl = environment.apiUrl;
- 
+ public cardDetails :any;
   constructor(private _http: HttpClient) { }
    
   getList(req:QueryParams): Observable<any> {
