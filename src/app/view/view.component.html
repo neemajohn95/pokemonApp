@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    
+    <div class="row col-md-12">
+        <h1 style="text-align: center;">Pokemon</h1>
+        <div class="col-md-4" style="padding: 18px;" *ngFor="let item1 of newList">
+
+                <p-card [style]="{width: '360px'}" styleClass="p-card-shadow">
+                    
+                    <ng-template pTemplate="header" >
+                        <img alt="Card" src="{{item1.img}}" style="width: 150px;">
+                    </ng-template>
+                    <p>{{item1.name}}</p>
+                    <ng-template pTemplate="footer">
+
+                    </ng-template>
+                </p-card>
+
+        </div>
+    </div>
+</div>
