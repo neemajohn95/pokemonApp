@@ -25,6 +25,7 @@ export class ViewComponent implements OnInit {
   totalCount: any;
   abilities: any;
   carddetails: any;
+  rowSpan: any;
   constructor(public service: PokeServiceService,public router:Router) { }
 
   ngOnInit(): void {

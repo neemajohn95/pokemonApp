@@ -1,32 +1,53 @@
 <div class="container-fluid">
-   
-    <div class="row col-md-12">
-        <h1 style="text-align: center;">Pokemon</h1>
- 
+
+    <div class="row col-md-12" style="margin: 0;">
+        <h1 class="header">Pokemon</h1>
+
         <div>
-            Sort By: <p-dropdown [options]="options" [(ngModel)]="selection" optionLabel="name" (onChange)="onSort()"></p-dropdown>
+            Sort By: <p-dropdown [options]="options" [(ngModel)]="selection" optionLabel="name" (onChange)="onSort()">
+            </p-dropdown>
 
         </div>
-        <p-paginator [pageLinkSize]="3" [rows]="10" [totalRecords]="totalCount" [rowsPerPageOptions]="[10,20,50]" (onPageChange)="paginate($event)"></p-paginator>
+        <p-paginator [pageLinkSize]="3" [rows]="10" [totalRecords]="totalCount" [rowsPerPageOptions]="[10,20,50]"
+            (onPageChange)="paginate($event)"></p-paginator>
         <div class="col-md-4" style="padding: 18px;" *ngFor="let item1 of newList">
 
-                <p-card [style]="{width: '360px',height:'373px'}" styleClass="p-card-shadow">
-                    
-                    <ng-template pTemplate="header" >
-                        <img alt="Card" src="{{item1.img}}" style="width: 150px;" class="center" (click)="oncardClick(item1.id)"> 
-                    </ng-template>
-                    <div style="text-align: center;">{{item1.name | uppercase}}</div>
-                    <div>Height : {{item1.height}}</div>
+            <p-card [style]="{width: '360px',height:'373px',background:'#f1ecec'}" styleClass="p-card-shadow">
+
+                <ng-template pTemplate="header">
+                    <img alt="Card" src="{{item1.img}}" style="width: 150px;" class="center"
+                        (click)="oncardClick(item1.id)">
+                </ng-template>
+                <div style="text-align: center;font-weight:bold">{{item1.name | uppercase}}</div>
+                <!-- <div>Height : {{item1.height}}</div>
                     <div>Weight: {{item1.weight}}</div>
                    
                        <div>Abilities:<div *ngFor="let item of item1.abilities">{{item.ability.name}}</div>
-                    </div>
+                    </div> -->
+                <br>
 
-                 
-                    <ng-template pTemplate="footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <th style="text-align: center">Height</th>
+                        <td style="text-align: center">{{item1.height}}</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: center">Weight</th>
+                        <td style="text-align: center">{{item1.weight}}</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2" style="text-align: center">Abilities</th>
+                        <td style="text-align: center">
+                            <div *ngFor="let item of item1.abilities">{{item.ability.name}}</div>
+                        </td>
+                    </tr>
 
-                    </ng-template>
-                </p-card>
+                </table>
+
+                <ng-template pTemplate="footer">
+
+                </ng-template>
+            </p-card>
 
         </div>
     </div>

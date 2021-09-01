@@ -12,6 +12,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 import {FieldsetModule} from 'primeng/fieldset';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {FieldsetModule} from 'primeng/fieldset';
     PaginatorModule,
     InputTextModule,
     DropdownModule,
-    FieldsetModule
+    FieldsetModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

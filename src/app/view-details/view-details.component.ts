@@ -13,6 +13,10 @@ export class ViewDetailsComponent implements OnInit {
   name:string='';
   height: any;
   weight: any;
+  species: any;
+  types: any;
+  stats: any;
+  forms: any;
   constructor(public service: PokeServiceService,public router:Router) { }
 
   ngOnInit(): void {
@@ -22,6 +26,10 @@ export class ViewDetailsComponent implements OnInit {
     this.name = this.cardDetails.name;
     this.height = this.cardDetails.height;
     this.weight = this.cardDetails.weight;
+    this.species =this.cardDetails.species.name;
+    this.types=this.cardDetails.types;
+    this.stats = this.cardDetails.stats;
+    this.forms=this.cardDetails.forms;
   }
   onBack(event:any){
     this.router.navigate(['view']); 

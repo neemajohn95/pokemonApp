@@ -1,11 +1,79 @@
 <div class="container-fluid">
 
-   <div class="col-md-12" style="padding-top: 10px;"> <button class="btnback" (click)="onBack($event)">Back</button></div>
-    <div class="col-md-12">
-    <img alt="Card" src="{{imageUrl}}" style="width: 261px;" class="center"> </div>
-    <p-fieldset legend="{{name}}">
-        <div>Height: {{height}}</div>
-        <div>Weight: {{weight}}</div>
+    
+    
+    <p-fieldset legend="{{name | uppercase}}" [style]="{background: 'rgb(214 224 225)'}">
+        <ng-template pTemplate="header"> <button class="btnback" (click)="onBack($event)">Back</button>
+       </ng-template>
+        <div class="row col-md-12">
+            <div class="col-md-8">
+            <img alt="Card" src="{{imageUrl}}" style="width: 261px;" class="center"></div>
+            <div class="col-md-4">
+                <p-card [style]="{width: '360px',height:'277px',background:'aliceblue'}" styleClass="p-card-shadow">
+                <div>Height : {{height}}</div>
+                <div>Weight : {{weight}}</div>
+                <div>Species : {{species}}</div>
+               </p-card>
+            </div>
+        </div>
+        <div class="row col-md-12">
+           
+            <div class="col-md-4">
+            <h5 style="text-align: center;">Types</h5>
+            <p-table [value]="types" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Slot</th>
+                        <th>Name</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{product.slot}}</td>
+                        <td>{{product.type.name}}</td>
+                       
+                    </tr>
+                </ng-template>
+            </p-table></div>
+            <div class="col-md-4">
+                <h5 >Forms</h5>
+                <p-table [value]="forms" responsiveLayout="scroll">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Name</th>
+                           
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <td>{{product.name}}</td>
+                            
+                        </tr>
+                    </ng-template>
+                </p-table></div>
+        </div>
+        <div class="row col-md-12">
+            <div class="col-md-4">
+            <h5 >Statistics</h5>
+            <p-table [value]="stats" style="width:500px" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Base</th>
+                        <th>Effort</th>
+                        <th>Name</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{product.base_stat}}</td>
+                        <td>{{product.effort}}</td>
+                        <td>{{product.stat.name}}</td>
+                    </tr>
+                </ng-template>
+            </p-table></div>
+
+            </div>
+     
     </p-fieldset>
 
 </div>
