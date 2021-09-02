@@ -26,8 +26,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## To run the project, download the project from GITHUB
+## To run the project, download(clone) the project from GITHUB
 
-Run `npm install` in the project folder to install packages and run `ng serve` to open the project in  `http://localhost:4200/`
+Github Url https://github.com/neemajohn95/pokemonApp
+
+Run `npm install` in the root directory to install packages and run `ng serve` to open the project in  `http://localhost:4200/`
+
+Clicking on the pokemon image on the card in the home screen, will load the card details page which gives the details of each pokemon
+
+Filter the data  based on name and ability by entering the whole name or ability string and click on search button
+
+Page refresh will maintain the sort data, but retaining search related data is not implemented
+
+## Unit Testing
+
+Jasmine test cases are written in the spec.ts files. In the directory run `ng test` to execute unit tests via karma
 
 ## PrimeNg Angular UI library has been used in the project
