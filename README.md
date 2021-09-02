@@ -34,7 +34,9 @@ Run `npm install` in the root directory to install packages and run `ng serve` t
 
 Clicking on the pokemon image on the card in the home screen, will load the card details page which gives the details of each pokemon
 
-Filter the data  based on name and ability by entering the whole name or ability string and click on search button
+Filter the data  based on name and ability by entering the whole name or ability string and click on search button/ press enter key
+
+Keyboard navigation added to display search data on clicking enter key after entering search data in the text boxes
 
 Page refresh will maintain the sort data, but retaining search related data is not implemented
 
