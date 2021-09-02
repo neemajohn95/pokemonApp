@@ -16,6 +16,7 @@ import {TableModule} from 'primeng/table';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     DropdownModule,
     FieldsetModule,
     TableModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent],

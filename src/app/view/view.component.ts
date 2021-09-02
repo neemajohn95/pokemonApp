@@ -18,7 +18,6 @@ export class ViewComponent implements OnInit {
   request: QueryParams = {
     page: 0,
     pageSize: 10,
-    orderBy: 'name',
   };
   selection: any = 'Name';
   options: Array<object> = [{ name: 'Name' }, { name: 'Height' }, { name: 'Weight' }];
@@ -29,13 +28,16 @@ export class ViewComponent implements OnInit {
   srchName: any;
   srchAmbility: any;
   loading: boolean = false;
+  public count: any;
+  fullList: any;
   constructor(public service: PokeServiceService, public router: Router) { }
 
   ngOnInit(): void {
     const selected = sessionStorage.getItem('selection');
     if (selected) {
       this.selection = { name: selected };
-    } else { this.selection = this.selection; }
+    } 
+    else { this.selection = this.selection; }
     this.getList(this.request);
 
 
@@ -48,13 +50,10 @@ export class ViewComponent implements OnInit {
       .subscribe(
         result => {
           this.list = result.results;
-
           this.totalCount = result.count;
           for (let i = 0; i < this.list.length; i++) {
-
             this.url = this.list[i].url;
             this.getPokemonDetails();
-
           }
         }
       );
@@ -86,9 +85,7 @@ export class ViewComponent implements OnInit {
         this.newList.sort((a, b) => (
           a.id - b.id
         ));
-        // let img=this.details.sprites.other['official-artwork'].front_default;
-        // this.image=img;
-
+        this.count=this.newList.length;
         this.onSort();
         this.loading = false;
       }
@@ -99,15 +96,13 @@ export class ViewComponent implements OnInit {
     this.loading = true;
     let first = event.first;
     let row = event.rows;
-    let page = event.page;
-    let noofPages = event.pageCount;
     this.request = {
       page: first,
       pageSize: row,
-      orderBy: 'name',
     }
     this.getList(this.request);
   }
+
   onSort() {
     if (this.selection.name) {
       sessionStorage.setItem('selection', this.selection.name);
@@ -125,13 +120,12 @@ export class ViewComponent implements OnInit {
     }
     else if (this.selection == 'Name' || this.selection.name == 'Name') {
       this.newList.sort((a, b) => {
-        return this.compareObjects(a, b, 'name')
+        return this.sortString(a, b, 'name')
       })
     }
-
-    console.log('newList', this.newList);
   }
-  compareObjects(a: any, b: any, name: any) {
+
+  sortString(a: any, b: any, name: any) {
     const obj1 = a[name].toUpperCase()
     const obj2 = b[name].toUpperCase()
 
@@ -145,14 +139,11 @@ export class ViewComponent implements OnInit {
   }
 
   oncardClick(event: any) {
-    console.log('shfak', event);
-
     this.newList.forEach(element => {
       if (element.id == event) {
         this.carddetails = element;
       }
     });
-    console.log('details', this.details);
     this.service.cardDetails = this.carddetails;
     this.router.navigate(['/view-details']);
   }
@@ -168,6 +159,7 @@ export class ViewComponent implements OnInit {
         }
       });
       this.newList = filteredList;
+      this.count = this.newList.length;
       this.loading = false;
     } else if (this.srchAmbility != '' && this.srchAmbility != undefined) {
       this.newList.forEach((element) => {
@@ -178,6 +170,7 @@ export class ViewComponent implements OnInit {
         });
       });
       this.newList = filteredList;
+      this.count = this.newList.length;
       this.loading = false;
     }
 

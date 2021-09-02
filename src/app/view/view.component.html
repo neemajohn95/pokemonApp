@@ -11,13 +11,13 @@
             </div>
             <div class="col-md-4"></div>
             <div class="col-md-2">
-                <input type="text" style="width: 100%;" [(ngModel)]="srchName" placeholder="Search by Name">
+                <input type="text"(keyup.enter)="onSearch($event)" style="width: 100%;" [(ngModel)]="srchName" placeholder="Search by Name">
             </div>
             <div class="col-md-2">
-                <input type="text" style="width: 100%;" [(ngModel)]="srchAmbility" placeholder="Search by Abilities">
+                <input type="text" (keyup.enter)="onSearch($event)" style="width: 100%;" [(ngModel)]="srchAmbility" placeholder="Search by Abilities">
             </div>
             <div class="col-md-1">
-                <button class="btnback" (click)="onSearch($event)">Search</button>
+                <button class="btnback" (click)="onSearch($event)" style="cursor: pointer;">Search</button>
             </div>
         </div>
         <div>
@@ -29,7 +29,7 @@
                 <div *ngIf="loading" class="loader"></div>
             </div>
             <div class="col-md-6">
-                <p-paginator [pageLinkSize]="3" [rows]="10" [totalRecords]="totalCount"
+                <p-paginator  [pageLinkSize]="3" [rows]="10" [totalRecords]="totalCount"
                     [rowsPerPageOptions]="[10,20,50]" (onPageChange)="paginate($event)"></p-paginator>
             </div>
         </div>
@@ -38,15 +38,10 @@
             <p-card [style]="{width: '360px',height:'373px',background:'#f1ecec'}" styleClass="p-card-shadow">
 
                 <ng-template pTemplate="header">
-                    <img alt="Card" src="{{item1.img}}" style="width: 150px;" class="center"
+                    <img alt="Card" src="{{item1.img}}" style="width: 150px; cursor: pointer;" class="center" tooltip="Click"
                         (click)="oncardClick(item1.id)">
                 </ng-template>
                 <div style="text-align: center;font-weight:bold">{{item1.name | uppercase}}</div>
-                <!-- <div>Height : {{item1.height}}</div>
-                    <div>Weight: {{item1.weight}}</div>
-                   
-                       <div>Abilities:<div *ngFor="let item of item1.abilities">{{item.ability.name}}</div>
-                    </div> -->
                 <br>
 
                 <table style="width: 100%;">

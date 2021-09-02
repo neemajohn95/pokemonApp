@@ -1,13 +1,10 @@
 <div class="container-fluid">
-
-    
-    
     <p-fieldset legend="{{name | uppercase}}" [style]="{background: 'rgb(214 224 225)'}">
         <ng-template pTemplate="header"> <button class="btnback" (click)="onBack($event)">Back</button>
        </ng-template>
         <div class="row col-md-12">
             <div class="col-md-8">
-            <img alt="Card" src="{{imageUrl}}" style="width: 261px;" class="center"></div>
+            <img alt="card" src="{{imageUrl}}" style="width: 261px;" class="center"></div>
             <div class="col-md-4">
                 <p-card [style]="{width: '360px',height:'277px',background:'aliceblue'}" styleClass="p-card-shadow">
                 <div>Height : {{height}}</div>

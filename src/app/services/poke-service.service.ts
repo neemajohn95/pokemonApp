@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import {Observable,of, from } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import {Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export interface QueryParams {
   query?: any;
   page: number;
   pageSize: number;
-  orderBy: string;
 }
 
 @Injectable({
@@ -28,7 +26,7 @@ export class PokeServiceService {
 
     return this._http.get(this.baseUrl,{params});
   }
-
+  
 
   getPokemonDetails(url:any){
     return this._http.get(url);
