@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## To run the project, download the project from GITHUB
+
+Run `npm install` in the project folder to install packages and run `ng serve` to open the project in  `http://localhost:4200/`
+
+## PrimeNg Angular UI library has been used in the project

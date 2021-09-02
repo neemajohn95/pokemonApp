@@ -1,41 +1,41 @@
 <div class="container-fluid">
 
-    <div class="row col-md-12" style="margin: 0;">
+    <div class="row col-sm-12" style="margin: 0;">
         <h1 class="header">Pokemon</h1>
 
-        <div class="row col-md-12">
-            <div class="col-md-3">
+        <div class="row col-sm-12">
+            <div class="col-sm-3">
                 Sort By:<p-dropdown [options]="options" [(ngModel)]="selection" optionLabel="name"
                     (onChange)="onSort()">
                 </p-dropdown>
             </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-2">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-2">
                 <input type="text"(keyup.enter)="onSearch($event)" style="width: 100%;" [(ngModel)]="srchName" placeholder="Search by Name">
             </div>
-            <div class="col-md-2">
+            <div class="col-sm-2">
                 <input type="text" (keyup.enter)="onSearch($event)" style="width: 100%;" [(ngModel)]="srchAmbility" placeholder="Search by Abilities">
             </div>
-            <div class="col-md-1">
+            <div class="col-sm-1">
                 <button class="btnback" (click)="onSearch($event)" style="cursor: pointer;">Search</button>
             </div>
         </div>
         <div>
 
         </div>
-        <div class="row col-md-12">
-            <div class="col-md-6">
+        <div class="row col-sm-12">
+            <div class="col-sm-6">
 
                 <div *ngIf="loading" class="loader"></div>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <p-paginator  [pageLinkSize]="3" [rows]="10" [totalRecords]="totalCount"
                     [rowsPerPageOptions]="[10,20,50]" (onPageChange)="paginate($event)"></p-paginator>
             </div>
         </div>
-        <div class="col-md-4" style="padding: 18px;" *ngFor="let item1 of newList">
+        <div class="col-sm-4" style="padding: 18px;" *ngFor="let item1 of newList">
 
-            <p-card [style]="{width: '360px',height:'373px',background:'#f1ecec'}" styleClass="p-card-shadow">
+            <p-card [style]="{width: 'auto',height:'373px',background:'#f1ecec'}" styleClass="p-card-shadow">
 
                 <ng-template pTemplate="header">
                     <img alt="Card" src="{{item1.img}}" style="width: 150px; cursor: pointer;" class="center" tooltip="Click"

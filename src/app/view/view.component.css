@@ -1,5 +1,6 @@
 :host >>> .p-paginator {
     float: right!important;
+    width: 416px!important;
 }
 .center {
     display: block;

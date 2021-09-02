@@ -20,8 +20,16 @@ export class ViewDetailsComponent implements OnInit {
   constructor(public service: PokeServiceService,public router:Router) { }
 
   ngOnInit(): void {
+    const savedDetails =  sessionStorage.getItem('cardDetails');
+  
+    if (!this.service.cardDetails && savedDetails) {
+      this.cardDetails = JSON.parse(savedDetails);
+    } else{
     this.cardDetails=this.service.cardDetails;
+    }
+  
     console.log('inchild',this.cardDetails);
+    sessionStorage.setItem('cardDetails',JSON.stringify(this.cardDetails));
     this.imageUrl = this.cardDetails.img;
     this.name = this.cardDetails.name;
     this.height = this.cardDetails.height;

@@ -37,7 +37,6 @@ export class ViewComponent implements OnInit {
     if (selected) {
       this.selection = { name: selected };
     } 
-    else { this.selection = this.selection; }
     this.getList(this.request);
 
 
